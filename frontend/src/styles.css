@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f4fbf7;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --text: #163027;
+  --muted: #587067;
+  --border: rgba(22, 48, 39, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a1712;
+  --surface: rgba(17, 28, 24, 0.9);
+  --surface-strong: #11201a;
+  --text: #effcf5;
+  --muted: #9eb8ae;
+  --border: rgba(239, 252, 245, 0.1);
+}
+
+body {
+  @apply font-body antialiased;
+  background:
+    radial-gradient(circle at top left, rgba(35, 163, 109, 0.18), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(76, 170, 227, 0.16), transparent 28%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+}

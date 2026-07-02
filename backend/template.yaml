@@ -1,0 +1,412 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: PrepAI serverless backend
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 15
+    MemorySize: 512
+    Handler: index.handler
+    Environment:
+      Variables:
+        USERS_TABLE: !Ref UsersTable
+        RESUMES_TABLE: !Ref ResumesTable
+        INTERVIEW_SESSIONS_TABLE: !Ref InterviewSessionsTable
+        INTERVIEW_QUESTIONS_TABLE: !Ref InterviewQuestionsTable
+        CODING_HISTORY_TABLE: !Ref CodingHistoryTable
+        APTITUDE_TESTS_TABLE: !Ref AptitudeTestsTable
+        PLACEMENT_APPLICATIONS_TABLE: !Ref PlacementApplicationsTable
+        STUDY_PLANS_TABLE: !Ref StudyPlansTable
+        NOTIFICATIONS_TABLE: !Ref NotificationsTable
+        ACTIVITY_LOGS_TABLE: !Ref ActivityLogsTable
+        LEADERBOARD_TABLE: !Ref LeaderboardTable
+        RESUME_BUCKET_NAME: !Ref ResumeBucket
+        JUDGE0_API_URL: !Ref Judge0ApiUrl
+        JUDGE0_API_KEY: !Ref Judge0ApiKey
+
+Parameters:
+  Judge0ApiUrl:
+    Type: String
+    Default: ""
+  Judge0ApiKey:
+    Type: String
+    Default: ""
+
+Resources:
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Auth:
+        DefaultAuthorizer: CognitoAuthorizer
+        Authorizers:
+          CognitoAuthorizer:
+            UserPoolArn: !GetAtt UserPool.Arn
+      Cors:
+        AllowMethods: "'GET,POST,PUT,DELETE,OPTIONS'"
+        AllowHeaders: "'Content-Type,Authorization'"
+        AllowOrigin: "'*'"
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: PrepAIUsers
+      AutoVerifiedAttributes:
+        - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: PrepAIWebClient
+      UserPoolId: !Ref UserPool
+      GenerateSecret: false
+      ExplicitAuthFlows:
+        - ALLOW_USER_PASSWORD_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+        - ALLOW_USER_SRP_AUTH
+
+  ResumeBucket:
+    Type: AWS::S3::Bucket
+
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties: &TableDefaults
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+
+  ResumesTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  InterviewSessionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  InterviewQuestionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  CodingHistoryTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  AptitudeTestsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  PlacementApplicationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  StudyPlansTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  NotificationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  ActivityLogsTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+  LeaderboardTable:
+    Type: AWS::DynamoDB::Table
+    Properties: *TableDefaults
+
+  AuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/auth.handler
+      Environment:
+        Variables:
+          COGNITO_USER_POOL_ID: !Ref UserPool
+          COGNITO_CLIENT_ID: !Ref UserPoolClient
+      Events:
+        Signup:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /auth/signup
+            Method: post
+            Auth:
+              Authorizer: NONE
+        Login:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /auth/login
+            Method: post
+            Auth:
+              Authorizer: NONE
+        ForgotPassword:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /auth/forgot-password
+            Method: post
+            Auth:
+              Authorizer: NONE
+        ResetPassword:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /auth/reset-password
+            Method: post
+            Auth:
+              Authorizer: NONE
+
+  DashboardFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/dashboard.handler
+      Events:
+        DashboardGet:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /dashboard
+            Method: get
+
+  ResumeUploadFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/resumeUpload.handler
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Ref ResumeBucket
+      Events:
+        ResumeUpload:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /resume/upload
+            Method: post
+
+  ResumeAnalysisFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/resumeAnalysis.handler
+      Events:
+        ResumeAnalyze:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /resume/analyze
+            Method: post
+        ResumeHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /resume/history
+            Method: get
+
+  InterviewFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/interview.handler
+      Events:
+        InterviewStart:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /interview/start
+            Method: post
+        InterviewAnswer:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /interview/answer
+            Method: post
+        InterviewHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /interview/history
+            Method: get
+        InterviewSession:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /interview/{id}
+            Method: get
+
+  CodingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/coding.handler
+      Events:
+        CodingReview:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /coding/run
+            Method: post
+        CodingSubmit:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /coding/submit
+            Method: post
+        CodingHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /coding/history
+            Method: get
+        CodingProblems:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /coding/problems
+            Method: get
+
+  AptitudeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/aptitude.handler
+      Events:
+        AptitudeStart:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /aptitude/start
+            Method: post
+        AptitudeSubmit:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /aptitude/submit
+            Method: post
+        AptitudeHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /aptitude/history
+            Method: get
+        AptitudeLeaderboard:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /aptitude/leaderboard
+            Method: get
+
+  AssistantFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/assistant.handler
+      Events:
+        AssistantChat:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /assistant/chat
+            Method: post
+        AssistantHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /assistant/history
+            Method: get
+
+  PlacementFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/placement.handler
+      Events:
+        PlacementList:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /placement
+            Method: get
+        PlacementCreate:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /placement
+            Method: post
+        PlacementAnalytics:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /placement/analytics
+            Method: get
+        PlacementUpdate:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /placement/{id}
+            Method: put
+        PlacementDelete:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /placement/{id}
+            Method: delete
+
+  StudyPlanFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/studyPlan.handler
+      Events:
+        StudyPlanGet:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /studyplan
+            Method: get
+        StudyPlanGenerate:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /studyplan/generate
+            Method: post
+
+  NotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/notification.handler
+      Events:
+        NotificationDispatch:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /notifications/dispatch
+            Method: post
+
+  CompanyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist
+      Handler: handlers/company.handler
+      Events:
+        CompanyList:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /companies
+            Method: get
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/prod"
+  UserPoolId:
+    Value: !Ref UserPool
+  UserPoolClientId:
+    Value: !Ref UserPoolClient
