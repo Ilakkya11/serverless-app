@@ -1,5 +1,12 @@
 # PrepAI
 
+## Internship Details
+
+- **Name:** Ilakkya
+- **Intern ID:** CITS1575
+- **Company:** CODTECH IT Solutions
+- **Domain:** Python Full Stack Development
+
 PrepAI is a serverless full-stack AI placement preparation platform built with React, TypeScript, AWS SAM, Lambda, API Gateway, DynamoDB, Cognito, S3, SES, and EventBridge.
 
 ## Highlights
