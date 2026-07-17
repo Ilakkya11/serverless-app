@@ -1,0 +1,192 @@
+2026-07-17 21:49:21,685 | No config file found in this directory.
+2026-07-17 21:49:21,686 | OSError occurred while reading TOML file: [Errno 2] No such file or directory: 'D:\\serverless app\\backend\\samconfig.toml'
+2026-07-17 21:49:21,686 | Config file location: D:\serverless app\backend\samconfig.toml
+2026-07-17 21:49:21,686 | Config file 'D:\serverless app\backend\samconfig.toml' does not exist
+2026-07-17 21:49:21,715 | Using SAM Template at D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,715 | Empty parameter set ({})
+2026-07-17 21:49:21,729 | OSError occurred while reading TOML file: [Errno 2] No such file or directory: 'D:\\serverless app\\backend\\samconfig.toml'
+2026-07-17 21:49:21,729 | Using config file: samconfig.toml, config environment: default
+2026-07-17 21:49:21,729 | Expand command line arguments to:
+2026-07-17 21:49:21,729 | --template_file=D:\serverless app\backend\.aws-sam\build\template.yaml --event=.\tmp-login.json --function_logical_id=AuthFunction --no_event --layer_cache_basedir=C:\Users\ilakkya\AppData\Roaming\AWS SAM\layers-pkg --container_host=localhost --container_host_interface=127.0.0.1 
+2026-07-17 21:49:21,729 | local invoke command is called
+2026-07-17 21:49:21,831 | No current session found, using default AWS::AccountId
+2026-07-17 21:49:21,855 | Collected default values for parameters: {'Judge0ApiUrl': '', 'Judge0ApiKey': ''}
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource Api, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource UserPool, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource UserPoolClient, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource ResumeBucket, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource UsersTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource ResumesTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource InterviewSessionsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource InterviewQuestionsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource CodingHistoryTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource AptitudeTestsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource PlacementApplicationsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource StudyPlansTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource NotificationsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource ActivityLogsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | There is no customer defined id or cdk path defined for resource LeaderboardTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,900 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AuthFunction is AuthFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource DashboardFunction is DashboardFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource ResumeUploadFunction is ResumeUploadFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource ResumeAnalysisFunction is ResumeAnalysisFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource InterviewFunction is InterviewFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource CodingFunction is CodingFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AptitudeFunction is AptitudeFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AssistantFunction is AssistantFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource PlacementFunction is PlacementFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource StudyPlanFunction is StudyPlanFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource NotificationFunction is NotificationFunction
+2026-07-17 21:49:21,901 | Sam customer defined id is more priority than other IDs. Customer defined id for resource CompanyFunction is CompanyFunction
+2026-07-17 21:49:21,903 | 0 stacks found in the template
+2026-07-17 21:49:21,903 | Collected default values for parameters: {'Judge0ApiUrl': '', 'Judge0ApiKey': ''}
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource Api, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource UserPool, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource UserPoolClient, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource ResumeBucket, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource UsersTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource ResumesTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource InterviewSessionsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource InterviewQuestionsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource CodingHistoryTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource AptitudeTestsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource PlacementApplicationsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource StudyPlansTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource NotificationsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource ActivityLogsTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | There is no customer defined id or cdk path defined for resource LeaderboardTable, so we will use the resource logical id as the resource id
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AuthFunction is AuthFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource DashboardFunction is DashboardFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource ResumeUploadFunction is ResumeUploadFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource ResumeAnalysisFunction is ResumeAnalysisFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource InterviewFunction is InterviewFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource CodingFunction is CodingFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AptitudeFunction is AptitudeFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource AssistantFunction is AssistantFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource PlacementFunction is PlacementFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource StudyPlanFunction is StudyPlanFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource NotificationFunction is NotificationFunction
+2026-07-17 21:49:21,933 | Sam customer defined id is more priority than other IDs. Customer defined id for resource CompanyFunction is CompanyFunction
+2026-07-17 21:49:21,936 | 27 resources found in the stack 
+2026-07-17 21:49:21,936 | Found Serverless function with name='AuthFunction' and CodeUri='AuthFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri AuthFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='DashboardFunction' and CodeUri='DashboardFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri DashboardFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='ResumeUploadFunction' and CodeUri='ResumeUploadFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri ResumeUploadFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='ResumeAnalysisFunction' and CodeUri='ResumeAnalysisFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri ResumeAnalysisFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='InterviewFunction' and CodeUri='InterviewFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri InterviewFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='CodingFunction' and CodeUri='CodingFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri CodingFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='AptitudeFunction' and CodeUri='AptitudeFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri AptitudeFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='AssistantFunction' and CodeUri='AssistantFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri AssistantFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='PlacementFunction' and CodeUri='PlacementFunction'
+2026-07-17 21:49:21,936 | --base-dir is not presented, adjusting uri PlacementFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,936 | Found Serverless function with name='StudyPlanFunction' and CodeUri='StudyPlanFunction'
+2026-07-17 21:49:21,937 | --base-dir is not presented, adjusting uri StudyPlanFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,937 | Found Serverless function with name='NotificationFunction' and CodeUri='NotificationFunction'
+2026-07-17 21:49:21,937 | --base-dir is not presented, adjusting uri NotificationFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,937 | Found Serverless function with name='CompanyFunction' and CodeUri='CompanyFunction'
+2026-07-17 21:49:21,937 | --base-dir is not presented, adjusting uri CompanyFunction relative to D:\serverless app\backend\.aws-sam\build\template.yaml
+2026-07-17 21:49:21,937 | ContainerClientFactory.create_client() called
+2026-07-17 21:49:21,937 | Admin preference: None
+2026-07-17 21:49:21,937 | Using auto-detected client creation
+2026-07-17 21:49:21,937 | Trying Docker client creation
+2026-07-17 21:49:21,937 | Creating Docker container client from environment variable.
+2026-07-17 21:49:21,937 | Creating container client with parameters: {'version': '1.35'}
+2026-07-17 21:49:21,937 | DockerContainerClient created successfully
+2026-07-17 21:49:21,945 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:21,952 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:21,953 | Using Docker as Container Engine.
+2026-07-17 21:49:21,953 | Set global container socket path: container_socket_path=
+2026-07-17 21:49:21,956 | ContainerClientFactory.create_client() called
+2026-07-17 21:49:21,956 | Admin preference: None
+2026-07-17 21:49:21,956 | Using auto-detected client creation
+2026-07-17 21:49:21,956 | Trying Docker client creation
+2026-07-17 21:49:21,956 | Creating Docker container client from environment variable.
+2026-07-17 21:49:21,957 | Creating container client with parameters: {'version': '1.35'}
+2026-07-17 21:49:21,958 | DockerContainerClient created successfully
+2026-07-17 21:49:21,963 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:21,971 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:21,971 | Using Docker as Container Engine.
+2026-07-17 21:49:21,971 | Set global container socket path: container_socket_path=
+2026-07-17 21:49:21,977 | Found one Lambda function with name 'AuthFunction'
+2026-07-17 21:49:21,978 | Invoking handlers/auth.handler (nodejs20.x)
+2026-07-17 21:49:21,978 | Loading AWS credentials from session with profile 'None'
+2026-07-17 21:49:22,016 | Resolving code path. Cwd=D:\serverless app\backend\.aws-sam\build, CodeUri=D:\serverless app\backend\.aws-sam\build\AuthFunction
+2026-07-17 21:49:22,016 | Resolved absolute path to code is D:\serverless app\backend\.aws-sam\build\AuthFunction
+2026-07-17 21:49:22,016 | Resolving code path. Cwd=D:\serverless app\backend\.aws-sam\build, CodeUri=D:\serverless app\backend\.aws-sam\build\AuthFunction
+2026-07-17 21:49:22,016 | Resolved real code path to D:\serverless app\backend\.aws-sam\build\AuthFunction
+2026-07-17 21:49:22,017 | Code D:\serverless app\backend\.aws-sam\build\AuthFunction is not a zip/jar file
+2026-07-17 21:49:22,017 | ContainerClientFactory.create_client() called
+2026-07-17 21:49:22,017 | Admin preference: None
+2026-07-17 21:49:22,017 | Using auto-detected client creation
+2026-07-17 21:49:22,017 | Trying Docker client creation
+2026-07-17 21:49:22,017 | Creating Docker container client from environment variable.
+2026-07-17 21:49:22,017 | Creating container client with parameters: {'version': '1.35'}
+2026-07-17 21:49:22,018 | DockerContainerClient created successfully
+2026-07-17 21:49:22,022 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:22,029 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:22,029 | Using Docker as Container Engine.
+2026-07-17 21:49:22,029 | Set global container socket path: container_socket_path=
+2026-07-17 21:49:25,534 | Local image is up-to-date
+2026-07-17 21:49:25,574 | Checking free port on 127.0.0.1:6067
+2026-07-17 21:49:25,611 | Using local image: public.ecr.aws/lambda/nodejs:20-rapid-x86_64.
+System.Management.Automation.RemoteException
+2026-07-17 21:49:25,611 | Mounting D:\serverless app\backend\.aws-sam\build\AuthFunction as /var/task:ro,delegated, inside runtime container
+2026-07-17 21:49:25,612 | ContainerClientFactory.create_client() called
+2026-07-17 21:49:25,612 | Admin preference: None
+2026-07-17 21:49:25,612 | Using auto-detected client creation
+2026-07-17 21:49:25,612 | Trying Docker client creation
+2026-07-17 21:49:25,612 | Creating Docker container client from environment variable.
+2026-07-17 21:49:25,612 | Creating container client with parameters: {'version': '1.35'}
+2026-07-17 21:49:25,612 | DockerContainerClient created successfully
+2026-07-17 21:49:25,618 | Fall back docker api version to 1.44: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:25,622 | Docker daemon check succeeded with fallback: 400 Client Error for http+docker://localnpipe/v1.35/_ping: Bad Request ("client version 1.35 is too old. Minimum supported API version is 1.40, please upgrade your client to a newer version")
+2026-07-17 21:49:25,622 | Using Docker as Container Engine.
+2026-07-17 21:49:25,623 | Set global container socket path: container_socket_path=
+2026-07-17 21:49:25,730 | SAM_CONTAINER_ID: 87a1df70dc01cda79adb1697d7c87df3f1f6781e823e960fb34fb1924895eb59
+2026-07-17 21:49:25,731 | Initialized container 87a1df70dc01cda79adb1697d7c87df3f1f6781e823e960fb34fb1924895eb59 with max_concurrency=1
+2026-07-17 21:49:26,016 | Starting a timer for 15 seconds for function 'AuthFunction'
+2026-07-17 21:49:26,017 | Container-87a1df70dc01 (concurrency available: 1/1) - ALLOWED for request ({"body":"{\"email\":\"samlocal@example.com\",\"password\":\"password123\"}","headers":{},"httpMethod":"POST","path":"/auth/login","requestContext":{},"queryStringParameters":null,"pathParameters":null}
+)
+START RequestId: 19dfd7df-bdea-4640-a494-cbc2fb088697 Version: $LATEST
+2026-07-17T16:19:30.284Z	undefined	ERROR	(node:16) Warning: NodeVersionSupportWarning: The AWS SDK for JavaScript (v3)
+System.Management.Automation.RemoteException
+versions published after the first week of January 2027
+System.Management.Automation.RemoteException
+will require node >=22. You are running node v20.20.2.
+System.Management.Automation.RemoteException
+System.Management.Automation.RemoteException
+System.Management.Automation.RemoteException
+To continue receiving updates to AWS services, bug fixes,
+System.Management.Automation.RemoteException
+and security updates please upgrade to node >=22.
+System.Management.Automation.RemoteException
+System.Management.Automation.RemoteException
+System.Management.Automation.RemoteException
+More information can be found at: https://a.co/c895JFp
+System.Management.Automation.RemoteException
+(Use `node --trace-warnings ...` to show where the warning was created)
+END RequestId: 19dfd7df-bdea-4640-a494-cbc2fb088697
+REPORT RequestId: 19dfd7df-bdea-4640-a494-cbc2fb088697	Init Duration: 0.05 ms	Duration: 3249.25 ms	Billed Duration: 3250 ms	Memory Size: 512 MB	Max Memory Used: 512 MB	
+System.Management.Automation.RemoteException
+2026-07-17 21:49:30,300 | [Container state] OOMKilled False
+2026-07-17 21:49:30,609 | Cleaning all decompressed code dirs
+2026-07-17 21:49:30,610 | Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+2026-07-17 21:49:30,852 | No container socket path in global storage, falling back to DOCKER_HOST detection: 
+2026-07-17 21:49:30,852 | Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+2026-07-17 21:49:30,853 | Unable to find Click Context for getting session_id.
+2026-07-17 21:49:30,853 | No container socket path in global storage, falling back to DOCKER_HOST detection: 
+2026-07-17 21:49:30,853 | Sending Telemetry: {'metrics': [{'commandRun': {'requestId': '4ccc3605-2bd3-403c-aa93-4511a97a56cb', 'installationId': 'ea24500e-b19e-4f1f-8174-7788569d58d8', 'sessionId': 'c553b78f-dcca-4899-8256-7ef76e67f0bb', 'executionEnvironment': 'CLI', 'ci': False, 'pyversion': '3.13.13', 'samcliVersion': '1.163.0', 'osPlatform': 'Windows', 'awsProfileProvided': False, 'debugFlagProvided': True, 'region': '', 'commandName': 'sam local invoke', 'metricSpecificAttributes': {'projectType': 'CFN', 'gitOrigin': '7cfa633452469f5ccdbc3efbbf9481930b164eae5e6a79c7df058513cc206a33', 'projectName': 'f56308d51544383cfbcb214c31445950814d4aacd09fd90d1508efc2f705266e', 'initialCommit': 'c4206901ae017d9ab0658e849c265d67ca848299b4c0e6420208fd72c9e46c2b', 'containerEngine': 'docker-default', 'adminContainerPreference': None, 'functionFieldsUsed': {'codeuri': 12, 'environment': 12, 'events': 12}}, 'duration': 8880, 'exitReason': 'success', 'exitCode': 0}}]}
+2026-07-17 21:49:30,853 | Sending Telemetry: {'metrics': [{'events': {'requestId': 'e212faf2-110f-4a29-8f2d-8554cdf25455', 'installationId': 'ea24500e-b19e-4f1f-8174-7788569d58d8', 'sessionId': 'c553b78f-dcca-4899-8256-7ef76e67f0bb', 'executionEnvironment': 'CLI', 'ci': False, 'pyversion': '3.13.13', 'samcliVersion': '1.163.0', 'osPlatform': 'Windows', 'commandName': 'sam local invoke', 'metricSpecificAttributes': {'events': [{'event_name': 'SamConfigFileExtension', 'event_value': '.toml', 'thread_id': 'a508ddd0dbeb4297b4f3bc5109caef94', 'time_stamp': '2026-07-17 16:19:21.686112+00', 'exception_name': None}, {'event_name': 'SamConfigFileExtension', 'event_value': '.toml', 'thread_id': 'cf9b3305390e43d2b8bc85bf617ef725', 'time_stamp': '2026-07-17 16:19:21.729419+00', 'exception_name': None}], 'containerEngine': 'docker-default'}}}]}
+2026-07-17 21:49:33,523 | HTTPSConnectionPool(host='aws-serverless-tools-telemetry.us-west-2.amazonaws.com', port=443): Read timed out. (read timeout=2)
+2026-07-17 21:49:33,524 | HTTPSConnectionPool(host='aws-serverless-tools-telemetry.us-west-2.amazonaws.com', port=443): Read timed out. (read timeout=2)
+2026-07-17 21:49:33,525 | Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+2026-07-17 21:49:33,525 | Sending Telemetry: {'metrics': [{'runtimeMetric': {'requestId': '40a1c18f-2944-443e-b683-41ef5293073c', 'installationId': 'ea24500e-b19e-4f1f-8174-7788569d58d8', 'sessionId': 'c553b78f-dcca-4899-8256-7ef76e67f0bb', 'executionEnvironment': 'CLI', 'ci': False, 'pyversion': '3.13.13', 'samcliVersion': '1.163.0', 'osPlatform': 'Windows', 'runtimes': ['nodejs20.x']}}]}
+2026-07-17 21:49:36,056 | HTTPSConnectionPool(host='aws-serverless-tools-telemetry.us-west-2.amazonaws.com', port=443): Read timed out. (read timeout=2)
+{"statusCode": 400, "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"}, "body": "{\"success\":false,\"message\":\"Invalid email or password\"}"}

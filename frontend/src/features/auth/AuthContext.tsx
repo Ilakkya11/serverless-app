@@ -51,14 +51,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const nextToken = result.IdToken || result.AccessToken || "";
         persistSession(email, nextToken);
       },
-      signup: async (email: string, password: string, name = email.split("@")[0]) => {
-        await post("/auth/signup", { email, password, name });
-        const result = await post<{
-          AccessToken?: string;
-          IdToken?: string;
-        }>("/auth/login", { email, password });
-        persistSession(email, result.IdToken || result.AccessToken || "");
-      },
+     signup: async (
+  email: string,
+  password: string,
+  name = email.split("@")[0]
+) => {
+  await post("/auth/signup", { email, password, name });
+},
       forgotPassword: async (email: string) => {
         await post("/auth/forgot-password", { email });
       },

@@ -1,1 +1,12 @@
-{}
+{
+  "UsersTableName": [
+    {
+      "pk": "USER#test@example.com",
+      "sk": "PROFILE",
+      "email": "test@example.com",
+      "password": "pass1234",
+      "name": "Test",
+      "createdAt": "2026-07-17T15:57:00.104Z"
+    }
+  ]
+}

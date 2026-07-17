@@ -8,7 +8,7 @@ import { badRequest, ok, serverError } from "../shared/response.js";
 const schema = z.object({
   resumeKey: z.string(),
   fileName: z.string(),
-  extractedText: z.string().min(50)
+  extractedText: z.string().default("")
 });
 
 type ResumeReport = {

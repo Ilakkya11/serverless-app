@@ -1,0 +1,1 @@
+{"body":"{\"email\":\"samlocal@example.com\",\"password\":\"password123\",\"name\":\"SamLocal\"}","headers":{},"httpMethod":"POST","path":"/auth/signup","requestContext":{},"queryStringParameters":null,"pathParameters":null}

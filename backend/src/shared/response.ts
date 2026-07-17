@@ -23,6 +23,12 @@ export function badRequest(message: string): APIGatewayProxyResult {
 }
 
 export function serverError(error: unknown): APIGatewayProxyResult {
+  console.error("SERVER ERROR:", error);
+
+  if (error instanceof Error) {
+    console.error(error.stack);
+  }
+
   return {
     statusCode: 500,
     headers: {

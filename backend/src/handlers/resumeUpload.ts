@@ -9,20 +9,25 @@ import { parseBody } from "../shared/request.js";
 
 const s3 = new S3Client({});
 const schema = z.object({
-  fileName: z.string().endsWith(".pdf"),
+  fileName: z.string().refine((value) => value.toLowerCase().endsWith(".pdf"), {
+    message: "File name must end with .pdf"
+  }),
   contentType: z.string().default("application/pdf")
 });
 
 export const handler: APIGatewayProxyHandler = async (event) => {
   try {
     if (process.env.LOCAL_DEV === "true" && event.httpMethod === "PUT") {
-      const uploadKey = event.pathParameters?.key;
+      const uploadKey = event.queryStringParameters?.key;
       if (!uploadKey || !event.body) {
         return badRequest("Missing upload key or body");
       }
       const uploadsDir = path.join(process.cwd(), ".local-uploads");
       mkdirSync(uploadsDir, { recursive: true });
-      writeFileSync(path.join(uploadsDir, uploadKey.replace(/[\\/]/g, "_")), event.body, "binary");
+      const bodyBuffer = event.isBase64Encoded
+        ? Buffer.from(event.body, "base64")
+        : Buffer.from(event.body, "utf8");
+      writeFileSync(path.join(uploadsDir, uploadKey.replace(/[\\\/]/g, "_")), bodyBuffer);
       return ok({ key: uploadKey }, "Local upload stored");
     }
 
@@ -34,7 +39,9 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     const key = `resumes/${Date.now()}-${payload.data.fileName}`;
     if (process.env.LOCAL_DEV === "true") {
       const encodedKey = encodeURIComponent(key);
-      return ok({ key, uploadUrl: `http://127.0.0.1:3000/local-upload/${encodedKey}` }, "Upload URL generated");
+      const host = event.headers["Host"] || "127.0.0.1:3000";
+      const proto = (event.headers["X-Forwarded-Proto"] || event.headers["x-forwarded-proto"] || "http").toString();
+      return ok({ key, uploadUrl: `${proto}://${host}/local-upload?key=${encodedKey}` }, "Upload URL generated");
     }
 
     const uploadUrl = await getSignedUrl(

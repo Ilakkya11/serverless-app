@@ -39,12 +39,16 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     const clientId = process.env.COGNITO_CLIENT_ID;
     const localDev = process.env.LOCAL_DEV === "true";
 
-    if (event.path.endsWith("/signup")) {
-      const parsed = signupSchema.safeParse(parseBody(event));
-      if (!parsed.success) {
-        return badRequest(parsed.error.message);
-      }
+if (event.path.endsWith("/signup")) {
+  console.log("RAW BODY:", event.body);
 
+  const parsed = signupSchema.safeParse(parseBody(event));
+  console.log("PARSED:", parsed);
+
+  if (!parsed.success) {
+    console.log("VALIDATION ERROR:", parsed.error);
+    return badRequest(parsed.error.message);
+  }
       if (localDev || !clientId) {
         await putItem(process.env.USERS_TABLE!, {
           pk: `USER#${parsed.data.email}`,

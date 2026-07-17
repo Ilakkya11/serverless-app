@@ -1,7 +1,6 @@
 # PrepAI
 
 ## Internship Details
-
 - **Name:** Ilakkya
 - **Intern ID:** CITS1575
 - **Company:** CODTECH IT Solutions

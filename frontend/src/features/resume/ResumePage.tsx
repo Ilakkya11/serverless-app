@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Card } from "../../components/ui/Card";
@@ -34,7 +35,7 @@ export function ResumePage() {
         contentType: file.type || "application/pdf"
       });
       setStatus("Uploading resume to cloud storage...");
-      await api.put(upload.uploadUrl, file, {
+      await axios.put(upload.uploadUrl, file, {
         headers: {
           "Content-Type": file.type || "application/pdf"
         }

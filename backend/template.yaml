@@ -4,12 +4,13 @@ Description: PrepAI serverless backend
 
 Globals:
   Function:
-    Runtime: nodejs20.x
+    Runtime: nodejs22.x
     Timeout: 15
     MemorySize: 512
     Handler: index.handler
     Environment:
       Variables:
+        LOCAL_DEV: "true"
         USERS_TABLE: !Ref UsersTable
         RESUMES_TABLE: !Ref ResumesTable
         INTERVIEW_SESSIONS_TABLE: !Ref InterviewSessionsTable
@@ -125,8 +126,10 @@ Resources:
       Handler: handlers/auth.handler
       Environment:
         Variables:
-          COGNITO_USER_POOL_ID: !Ref UserPool
-          COGNITO_CLIENT_ID: !Ref UserPoolClient
+          LOCAL_DEV: "true"
+          USERS_TABLE: !Ref UsersTable
+          COGNITO_USER_POOL_ID: ""
+          COGNITO_CLIENT_ID: ""
       Events:
         Signup:
           Type: Api
@@ -189,6 +192,14 @@ Resources:
             RestApiId: !Ref Api
             Path: /resume/upload
             Method: post
+        LocalUpload:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /local-upload
+            Method: put
+            Auth:
+              Authorizer: NONE
 
   ResumeAnalysisFunction:
     Type: AWS::Serverless::Function
