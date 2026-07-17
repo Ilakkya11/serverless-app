@@ -1,1 +1,0 @@
-{"httpMethod": "POST", "path": "/resume/upload", "headers": {"Content-Type": "application/json", "Host": "127.0.0.1:3000"}, "body": "{\"fileName\": \"test.pdf\", \"contentType\": \"application/pdf\"}", "isBase64Encoded": false, "requestContext": {}}

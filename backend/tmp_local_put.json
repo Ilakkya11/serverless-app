@@ -1,1 +1,0 @@
-{"httpMethod": "PUT", "path": "/local-upload", "headers": {"Content-Type": "application/pdf", "Host": "127.0.0.1:3000"}, "queryStringParameters": {"key": "resumes%2Fexample.pdf"}, "body": "SGVsbG8=", "isBase64Encoded": true, "requestContext": {}}
